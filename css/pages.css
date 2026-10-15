@@ -1,0 +1,32 @@
+/* Page-scoped styles for services, pricing, about, contact */
+.section-card p {
+  color: var(--muted);
+}
+
+.service-card .price {
+  margin-top: 16px;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--blue);
+}
+
+.feature-list .d {
+  color: var(--muted);
+}
+
+.rate-table td {
+  color: var(--ink);
+}
+
+.faq-item.open .faq-a {
+  max-height: 360px;
+}
+
+.timeline .t-item p {
+  color: var(--muted);
+}
+
+.map-ph .cap {
+  font-weight: 800;
+  color: var(--navy-800);
+}

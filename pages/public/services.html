@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services — StudyNest Student Study Lounge</title>
+  <meta name="description" content="Services at StudyNest: quiet study space, Wi-Fi, charging, printing & photocopying, group study area, snacks & drinks. Student-only, ₱15–₱25 per hour." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230b1e3d'/%3E%3Ctext x='32' y='42' font-family='Arial' font-size='26' font-weight='bold' fill='%23f5c451' text-anchor='middle'%3ESN%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/pages.css" />
+  <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css" />
+  <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+</head>
+<body data-page="services">
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="../public/index.html" class="brand"><span class="brand-mark">SN</span>Study<span class="accent">Nest</span></a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../public/index.html" data-nav="home">Home</a></li>
+        <li><a href="../booking/booking.html" data-nav="book">Book a Seat</a></li>
+        <li><a href="../booking/seats.html" data-nav="seats">Available Seats</a></li>
+        <li><a href="../booking/my-bookings.html" data-nav="my-bookings">My Bookings</a></li>
+        <li><a href="../public/services.html" data-nav="services">Services</a></li>
+        <li><a href="../public/pricing.html" data-nav="pricing">Pricing</a></li>
+        <li><a href="../public/about.html" data-nav="about">About</a></li>
+        <li><a href="../public/contact.html" data-nav="contact">Contact</a></li>
+        <li class="mobile-cta"><a href="../auth/login.html" data-nav="login">Login / Sign Up</a></li>
+      </ul>
+
+      <div class="nav-actions" id="nav-auth">
+        <a href="../auth/login.html" class="btn btn-ghost btn-sm">Log in</a>
+        <a href="../auth/register.html" class="btn btn-primary btn-sm">Sign up</a>
+      </div>
+
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="section">
+      <div class="page-hero">
+        <div class="breadcrumb">
+          <a href="../public/index.html">Home</a>
+          <span>›</span>
+          <span>Services</span>
+        </div>
+        <span class="eyebrow on-dark">What we offer</span>
+        <h1>Services</h1>
+        <p class="hero-sub">Everything a study session needs — quiet, affordable, and built for senior high and college students near campus.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-card">
+        <div class="section-head">
+          <div class="lead">
+            <span class="eyebrow">Core services</span>
+            <h2>Built to keep you focused</h2>
+            <p>From focused solo study to full group reviews, get the essentials without the café markup.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-3">
+          <article class="card service-card">
+            <div class="icon-tile">📚</div>
+            <h3>Quiet Study Space</h3>
+            <p>Individual desks with reading lamps, privacy dividers, and ergonomic chairs in a distraction-free zone.</p>
+            <div class="price">Included with every hour</div>
+          </article>
+          <article class="card service-card">
+            <div class="icon-tile blue">📶</div>
+            <h3>Wi-Fi</h3>
+            <p>Fast, stable internet for research, LMS access, coding, and online review materials.</p>
+            <div class="price">Included with every hour</div>
+          </article>
+          <article class="card service-card">
+            <div class="icon-tile navy">🔌</div>
+            <h3>Charging Station</h3>
+            <p>Power outlets and USB ports at every seat so laptops, tablets, and phones stay fully charged.</p>
+            <div class="price">Included with every hour</div>
+          </article>
+          <article class="card service-card">
+            <div class="icon-tile blue">🖨️</div>
+            <h3>Printing & Photocopying</h3>
+            <p>Print and photocopy modules, reports, and references right at the lounge for a minimal fee.</p>
+            <div class="price">₱2 per page</div>
+          </article>
+          <article class="card service-card">
+            <div class="icon-tile">👥</div>
+            <h3>Group Study Area</h3>
+            <p>Reserved tables for thesis work, defenses, and group reviews with whiteboards and space for 4–8 students.</p>
+            <div class="price">4–8 seats per table</div>
+          </article>
+          <article class="card service-card">
+            <div class="icon-tile navy">🥤</div>
+            <h3>Snacks & Drinks</h3>
+            <p>Affordable drinks and light bites at the counter to power long study blocks, especially during midterms and finals.</p>
+            <div class="price">Counter prices</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-card">
+        <div class="section-head">
+          <div class="lead">
+            <span class="eyebrow">Facilities at a glance</span>
+            <h2>Everything set up for real focus</h2>
+            <p>A purpose-built space near campus designed with student needs in mind.</p>
+          </div>
+        </div>
+
+        <ul class="feature-list">
+          <li>
+            <span class="tick">✓</span>
+            <div>
+              <strong>Silent-house rules</strong>
+              <span class="d">Quiet zone maintained so everyone can concentrate without distractions.</span>
+            </div>
+          </li>
+          <li>
+            <span class="tick">✓</span>
+            <div>
+              <strong>15 seats total</strong>
+              <span class="d">Tight capacity keeps the space calm, never overcrowded.</span>
+            </div>
+          </li>
+          <li>
+            <span class="tick">✓</span>
+            <div>
+              <strong>Power outlet at every desk</strong>
+              <span class="d">Stay plugged in for long coding, reading, or writing sessions.</span>
+            </div>
+          </li>
+          <li>
+            <span class="tick">✓</span>
+            <div>
+              <strong>Whiteboards in group area</strong>
+              <span class="d">Perfect for brainstorming, outlines, and solving practice problems together.</span>
+            </div>
+          </li>
+          <li>
+            <span class="tick">✓</span>
+            <div>
+              <strong>Water station</strong>
+              <span class="d">Free, easy access to stay hydrated between study blocks.</span>
+            </div>
+          </li>
+          <li>
+            <span class="tick">✓</span>
+            <div>
+              <strong>Open 8:00 AM–10:00 PM daily</strong>
+              <span class="d">Fits early morning reviews and late-night cramming before deadlines.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-card">
+        <div class="section-head">
+          <div class="lead">
+            <span class="eyebrow">House rules</span>
+            <h2>Respectful space for all students</h2>
+            <p>Simple rules that keep StudyNest quiet, clean, and fair for everyone.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-3">
+          <div class="card">
+            <h3>Quiet by design</h3>
+            <p>Keep conversations low and use the group area for longer discussions. Silence your devices in the quiet zone.</p>
+          </div>
+          <div class="card">
+            <h3>No calls inside the quiet area</h3>
+            <p>Take calls outside or in designated spots to avoid disrupting others who need full focus.</p>
+          </div>
+          <div class="card">
+            <h3>Food only at the snack corner</h3>
+            <p>To keep desks clean and minimize distractions, enjoy food and drinks at the counter/snack corner.</p>
+          </div>
+          <div class="card">
+            <h3>15-minute grace period</h3>
+            <p>If you're running a little late for your booking, a 15-minute grace period applies.</p>
+          </div>
+          <div class="card">
+            <h3>Cancel free before your slot</h3>
+            <p>Need to reschedule? Cancel for free anytime before your booked slot starts.</p>
+          </div>
+          <div class="card">
+            <h3>Be considerate</h3>
+            <p>Keep your space tidy, return borrowed items, and help maintain a positive environment for fellow students.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="cta-band">
+        <div>
+          <h2>Ready to book your study seat?</h2>
+          <p>Open daily 8:00 AM–10:00 PM · Just a few steps from the campus main gate.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="../booking/booking.html" class="btn btn-amber btn-lg">Book a Seat</a>
+          <a href="../public/contact.html" class="btn btn-outline-light btn-lg">Contact us</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="../public/index.html" class="brand"><span class="brand-mark">SN</span>Study<span class="accent">Nest</span></a>
+        <p>Affordable, quiet, student-only study space near campus. Book a seat by the hour and study the way you should.</p>
+        <span class="footer-status js-status">Checking hours…</span>
+      </div>
+
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="../public/index.html">Home</a></li>
+          <li><a href="../booking/booking.html">Book a Seat</a></li>
+          <li><a href="../booking/seats.html">Available Seats</a></li>
+          <li><a href="../booking/my-bookings.html">My Bookings</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="../public/services.html">Quiet study seats</a></li>
+          <li><a href="../public/services.html">Group study area</a></li>
+          <li><a href="../public/services.html">Printing &amp; photocopying</a></li>
+          <li><a href="../public/services.html">Snacks &amp; drinks</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Visit</h4>
+        <ul>
+          <li>Steps from the campus main gate</li>
+          <li>Open daily 8 AM – 10 PM</li>
+          <li>₱15 – ₱25 / hour</li>
+          <li><a href="../public/contact.html">Contact the lounge</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>© 2026 StudyNest Student Study Lounge. All rights reserved.</p>
+      <p>Your space. Your focus.</p>
+    </div>
+  </footer>
+
+  <div class="toast-host"></div>
+  <div class="modal-root"></div>
+
+  <script type="py" src="../../py/public/main.py" config="../../pyscript.json"></script>
+</body>
+</html>
