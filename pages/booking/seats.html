@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Available Seats — Live Seat Availability | StudyNest</title>
+  <meta name="description" content="Watch the StudyNest floor live: 12 individual study seats and 3 group tables with real-time availability by date and hour. Filter by available, occupied, group or individual seats." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230b1e3d'/%3E%3Ctext x='32' y='42' font-family='Arial' font-size='26' font-weight='bold' fill='%23f5c451' text-anchor='middle'%3ESN%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/dashboard.css" />
+  <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css" />
+  <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+</head>
+<body data-page="seats">
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="../public/index.html" class="brand"><span class="brand-mark">SN</span>Study<span class="accent">Nest</span></a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../public/index.html" data-nav="home">Home</a></li>
+        <li><a href="../booking/booking.html" data-nav="book">Book a Seat</a></li>
+        <li><a href="../booking/seats.html" data-nav="seats">Available Seats</a></li>
+        <li><a href="../booking/my-bookings.html" data-nav="my-bookings">My Bookings</a></li>
+        <li><a href="../public/services.html" data-nav="services">Services</a></li>
+        <li><a href="../public/pricing.html" data-nav="pricing">Pricing</a></li>
+        <li><a href="../public/about.html" data-nav="about">About</a></li>
+        <li><a href="../public/contact.html" data-nav="contact">Contact</a></li>
+        <li class="mobile-cta"><a href="../auth/login.html" data-nav="login">Login / Sign Up</a></li>
+      </ul>
+
+      <div class="nav-actions" id="nav-auth">
+        <a href="../auth/login.html" class="btn btn-ghost btn-sm">Log in</a>
+        <a href="../auth/register.html" class="btn btn-primary btn-sm">Sign up</a>
+      </div>
+
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <section class="section">
+      <div class="page-hero">
+        <div class="row between">
+          <div>
+            <span class="eyebrow on-dark">Live floor status</span>
+            <h1>Available Seats</h1>
+            <p>Real-time availability for every desk and group table. Pick a date and an hour, filter the floor, then tap a seat for its rate and amenities.</p>
+          </div>
+          <span class="badge-live"><span class="pulse"></span>Live</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="card control-bar">
+        <div class="control-fields">
+          <div class="field">
+            <label for="seat-date">Date</label>
+            <input type="date" id="seat-date" class="input" />
+          </div>
+          <div class="field">
+            <label for="seat-slot">Time slot</label>
+            <select id="seat-slot" class="select"></select>
+          </div>
+        </div>
+        <div class="tabs" id="seat-filters">
+          <button type="button" class="tab active" data-filter="all">All</button>
+          <button type="button" class="tab" data-filter="available">Available</button>
+          <button type="button" class="tab" data-filter="occupied">Occupied</button>
+          <button type="button" class="tab" data-filter="group">Group</button>
+          <button type="button" class="tab" data-filter="individual">Individual</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="stat-grid" id="seat-stats">
+        <div class="stat-card">
+          <span class="value" id="kpi-total">15</span>
+          <span class="label">Total Seats</span>
+        </div>
+        <div class="stat-card accent">
+          <span class="value" id="kpi-available">&mdash;</span>
+          <span class="label">Available</span>
+        </div>
+        <div class="stat-card">
+          <span class="value" id="kpi-occupied">&mdash;</span>
+          <span class="label">Occupied</span>
+        </div>
+        <div class="stat-card">
+          <span class="value" id="kpi-reserved">&mdash;</span>
+          <span class="label">Reserved</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-card">
+        <div class="section-head">
+          <div class="lead">
+            <span class="eyebrow">Seat map</span>
+            <h2>Floor plan</h2>
+            <p id="seats-context">Loading today&rsquo;s floor&hellip;</p>
+          </div>
+          <div class="legend">
+            <span><i class="l-ok"></i>Available</span>
+            <span><i class="l-warn"></i>Reserved</span>
+            <span><i class="l-bad"></i>Occupied</span>
+            <span><i class="l-sel"></i>Selected</span>
+          </div>
+        </div>
+
+        <div class="seats-layout">
+          <div>
+            <div id="floor-map"></div>
+            <div class="empty-state hidden" id="filter-empty">
+              <div class="big">🪑</div>
+              <h4>No seats match this filter</h4>
+              <p>Switch back to the All tab to see the whole floor again.</p>
+            </div>
+          </div>
+
+          <aside>
+            <div class="card seat-detail" id="seat-detail">
+              <div class="empty-state">
+                <div class="big">🪑</div>
+                <h4>Pick a seat</h4>
+                <p>Tap any desk on the floor plan to see its rate, amenities and live status.</p>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="../public/index.html" class="brand"><span class="brand-mark">SN</span>Study<span class="accent">Nest</span></a>
+        <p>Affordable, quiet, student-only study space near campus. Book a seat by the hour and study the way you should.</p>
+        <span class="footer-status js-status">Checking hours&hellip;</span>
+      </div>
+
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="../public/index.html">Home</a></li>
+          <li><a href="../booking/booking.html">Book a Seat</a></li>
+          <li><a href="../booking/seats.html">Available Seats</a></li>
+          <li><a href="../booking/my-bookings.html">My Bookings</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="../public/services.html">Quiet study seats</a></li>
+          <li><a href="../public/services.html">Group study area</a></li>
+          <li><a href="../public/services.html">Printing &amp; photocopying</a></li>
+          <li><a href="../public/services.html">Snacks &amp; drinks</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Visit</h4>
+        <ul>
+          <li>Steps from the campus main gate</li>
+          <li>Open daily 8 AM &ndash; 10 PM</li>
+          <li>&#8369;15 &ndash; &#8369;25 / hour</li>
+          <li><a href="../public/contact.html">Contact the lounge</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; 2026 StudyNest Student Study Lounge. All rights reserved.</p>
+      <p>Your space. Your focus.</p>
+    </div>
+  </footer>
+
+  <div class="toast-host"></div>
+  <div class="modal-root"></div>
+
+  <script type="py" src="../../py/booking/seats.py" config="../../pyscript.json"></script>
+</body>
+</html>
