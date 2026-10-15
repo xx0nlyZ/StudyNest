@@ -1,0 +1,6 @@
+{
+  "fetch": [
+    { "from": "./py/shared/store.py", "to": "store.py" },
+    { "from": "./py/shared/ui.py", "to": "ui.py" }
+  ]
+}
