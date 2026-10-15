@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book a Seat — 6-Step Reservation | StudyNest</title>
+  <meta name="description" content="Reserve a StudyNest study seat or group table in six quick steps: date, time, seat, duration, details and instant confirmation with a booking ID." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230b1e3d'/%3E%3Ctext x='32' y='42' font-family='Arial' font-size='26' font-weight='bold' fill='%23f5c451' text-anchor='middle'%3ESN%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/booking.css" />
+  <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css" />
+  <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+</head>
+<body data-page="book">
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="../public/index.html" class="brand"><span class="brand-mark">SN</span>Study<span class="accent">Nest</span></a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../public/index.html" data-nav="home">Home</a></li>
+        <li><a href="../booking/booking.html" data-nav="book">Book a Seat</a></li>
+        <li><a href="../booking/seats.html" data-nav="seats">Available Seats</a></li>
+        <li><a href="../booking/my-bookings.html" data-nav="my-bookings">My Bookings</a></li>
+        <li><a href="../public/services.html" data-nav="services">Services</a></li>
+        <li><a href="../public/pricing.html" data-nav="pricing">Pricing</a></li>
+        <li><a href="../public/about.html" data-nav="about">About</a></li>
+        <li><a href="../public/contact.html" data-nav="contact">Contact</a></li>
+        <li class="mobile-cta"><a href="../auth/login.html" data-nav="login">Login / Sign Up</a></li>
+      </ul>
+
+      <div class="nav-actions" id="nav-auth">
+        <a href="../auth/login.html" class="btn btn-ghost btn-sm">Log in</a>
+        <a href="../auth/register.html" class="btn btn-primary btn-sm">Sign up</a>
+      </div>
+
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <section class="section">
+      <div class="page-hero">
+        <div class="row between">
+          <div>
+            <span class="eyebrow on-dark">Reservation</span>
+            <h1>Book a Seat</h1>
+            <p>Six steps, under a minute. Pick a day, pick an hour, pick your desk &mdash; you get a booking ID the moment you confirm.</p>
+          </div>
+          <span class="badge-live"><span class="pulse"></span>Seats updating live</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="card wizard" id="wizard">
+
+        <ol class="stepper" id="stepper">
+          <li class="step-dot is-active" data-step="1"><span class="dot">1</span><span class="txt">Select Date</span></li>
+          <li class="step-dot" data-step="2"><span class="dot">2</span><span class="txt">Select Time</span></li>
+          <li class="step-dot" data-step="3"><span class="dot">3</span><span class="txt">Select Space</span></li>
+          <li class="step-dot" data-step="4"><span class="dot">4</span><span class="txt">Duration</span></li>
+          <li class="step-dot" data-step="5"><span class="dot">5</span><span class="txt">Your Details</span></li>
+          <li class="step-dot" data-step="6"><span class="dot">6</span><span class="txt">Summary</span></li>
+        </ol>
+
+        <div class="wizard-body">
+
+          <div class="step-panel" data-panel="1">
+            <div class="panel-head">
+              <h2>Select your date</h2>
+              <p>Choose the day you want to study. Days before today are closed.</p>
+            </div>
+            <div class="book-layout">
+              <div class="cal">
+                <div class="cal-nav">
+                  <button type="button" class="cal-nav-btn" data-dir="-1" aria-label="Previous month">&#8249;</button>
+                  <span class="cal-label" id="cal-label">Month</span>
+                  <button type="button" class="cal-nav-btn" data-dir="1" aria-label="Next month">&#8250;</button>
+                </div>
+                <div class="cal-head">
+                  <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
+                </div>
+                <div class="cal-grid" id="cal-grid"></div>
+              </div>
+              <div class="side-box">
+                <span class="side-label">Selected date</span>
+                <p class="side-value" id="date-chosen">No date selected yet</p>
+                <p class="side-note">The lounge is open 8:00 AM to 10:00 PM every day, including Sundays and holidays.</p>
+                <div class="side-mini" id="date-hint"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-panel hidden" data-panel="2">
+            <div class="panel-head">
+              <h2>Select a time slot</h2>
+              <p id="slot-context">Hourly slots from 8:00 AM to 7:00 PM.</p>
+            </div>
+            <div class="legend mb-3">
+              <span><i class="l-ok"></i>Available</span>
+              <span><i class="l-warn"></i>Almost Full</span>
+              <span><i class="l-bad"></i>Fully Booked</span>
+            </div>
+            <div class="slot-grid" id="slot-grid"></div>
+            <div class="chosen mt-3" id="slot-chosen">No time selected yet</div>
+          </div>
+
+          <div class="step-panel hidden" data-panel="3">
+            <div class="panel-head">
+              <h2>Select your study space</h2>
+              <p id="seat-context">Tap a desk to see its rate and amenities.</p>
+            </div>
+            <div class="book-layout">
+              <div>
+                <div id="floor-map"></div>
+                <div class="legend mt-3">
+                  <span><i class="l-ok"></i>Available</span>
+                  <span><i class="l-warn"></i>Reserved</span>
+                  <span><i class="l-bad"></i>Occupied</span>
+                  <span><i class="l-sel"></i>Selected</span>
+                </div>
+              </div>
+              <aside class="side-box">
+                <span class="side-label">Your seat</span>
+                <div id="seat-detail">
+                  <p class="side-note">Nothing selected yet. Green desks on the floor plan are free for your chosen date and time.</p>
+                </div>
+              </aside>
+            </div>
+          </div>
+
+          <div class="step-panel hidden" data-panel="4">
+            <div class="panel-head">
+              <h2>How long are you staying?</h2>
+              <p>Extended sessions can run past closing time, so longer options may be locked.</p>
+            </div>
+            <div class="dur-grid" id="duration-grid"></div>
+            <div class="price-preview" id="price-preview"></div>
+          </div>
+
+          <div class="step-panel hidden" data-panel="5">
+            <div class="panel-head">
+              <h2>Your details</h2>
+              <p>We only use these to hold your seat and reach you if the lounge needs to.</p>
+            </div>
+            <div class="alert err hidden" id="form-alert"></div>
+            <div class="form-grid cols-2">
+              <div class="field">
+                <label for="b-name">Full Name <span class="req">*</span></label>
+                <input class="input" id="b-name" type="text" placeholder="Juan Dela Cruz" autocomplete="name" />
+                <span class="err" id="e-name"></span>
+              </div>
+              <div class="field">
+                <label for="b-email">Email <span class="req">*</span></label>
+                <input class="input" id="b-email" type="email" placeholder="juan@student.edu.ph" autocomplete="email" />
+                <span class="err" id="e-email"></span>
+              </div>
+              <div class="field">
+                <label for="b-phone">Phone Number <span class="req">*</span></label>
+                <input class="input" id="b-phone" type="tel" placeholder="09XX XXX XXXX" autocomplete="tel" />
+                <span class="err" id="e-phone"></span>
+              </div>
+              <div class="field">
+                <label for="b-sid">Student ID <span class="hint">(optional)</span></label>
+                <input class="input" id="b-sid" type="text" placeholder="2026-00415" />
+                <span class="err"></span>
+              </div>
+              <div class="field">
+                <label for="b-people">Number of People <span class="req">*</span></label>
+                <input class="input" id="b-people" type="number" min="1" step="1" value="1" />
+                <span class="hint" id="people-hint">Individual seats fit 1 student.</span>
+                <span class="err" id="e-people"></span>
+              </div>
+              <div class="field">
+                <label>Seat summary</label>
+                <p class="side-note" id="info-seat">—</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-panel hidden" data-panel="6">
+            <div class="panel-head">
+              <h2>Booking summary</h2>
+              <p>Check everything once more, then confirm to lock the seat.</p>
+            </div>
+            <div class="summary-wrap">
+              <div class="summary" id="summary"></div>
+              <aside class="side-box">
+                <span class="side-label">Add-ons</span>
+                <label class="check mb-2"><input type="checkbox" id="add-printing" /> Printing pack &mdash; &#8369;20 (10 pages + binding)</label>
+                <label class="check"><input type="checkbox" id="add-snacks" /> Snack combo &mdash; &#8369;25 (drink + instant noodles)</label>
+                <p class="side-note mt-2">Add-ons are paid together at the counter when you arrive.</p>
+              </aside>
+            </div>
+            <div class="alert warn mt-3" id="confirm-note">Confirm your booking to lock your seat in. You can cancel for free any time before your slot.</div>
+            <button type="button" class="btn btn-amber btn-lg btn-block mt-3" id="confirm-book">Confirm Booking</button>
+          </div>
+
+        </div>
+
+        <div class="wizard-foot">
+          <button type="button" class="btn btn-ghost" id="step-back">&#8592; Back</button>
+          <span class="step-count" id="step-count">Step 1 of 6</span>
+          <button type="button" class="btn btn-primary" id="step-next">Continue &#8594;</button>
+        </div>
+      </div>
+
+      <div class="card confirm-view hidden" id="confirm-view"></div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="../public/index.html" class="brand"><span class="brand-mark">SN</span>Study<span class="accent">Nest</span></a>
+        <p>Affordable, quiet, student-only study space near campus. Book a seat by the hour and study the way you should.</p>
+        <span class="footer-status js-status">Checking hours&hellip;</span>
+      </div>
+
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="../public/index.html">Home</a></li>
+          <li><a href="../booking/booking.html">Book a Seat</a></li>
+          <li><a href="../booking/seats.html">Available Seats</a></li>
+          <li><a href="../booking/my-bookings.html">My Bookings</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="../public/services.html">Quiet study seats</a></li>
+          <li><a href="../public/services.html">Group study area</a></li>
+          <li><a href="../public/services.html">Printing &amp; photocopying</a></li>
+          <li><a href="../public/services.html">Snacks &amp; drinks</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Visit</h4>
+        <ul>
+          <li>Steps from the campus main gate</li>
+          <li>Open daily 8 AM &ndash; 10 PM</li>
+          <li>&#8369;15 &ndash; &#8369;25 / hour</li>
+          <li><a href="../public/contact.html">Contact the lounge</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; 2026 StudyNest Student Study Lounge. All rights reserved.</p>
+      <p>Your space. Your focus.</p>
+    </div>
+  </footer>
+
+  <div class="toast-host"></div>
+  <div class="modal-root"></div>
+
+  <script type="py" src="../../py/booking/booking.py" config="../../pyscript.json"></script>
+</body>
+</html>
