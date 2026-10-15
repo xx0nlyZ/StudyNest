@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StudyNest — Your Space. Your Focus. | Student Study Lounge Booking</title>
+  <meta name="description" content="StudyNest is an affordable, student-only study lounge near campus. Book quiet study seats and group study spaces by the hour from ₱15–₱25. Wi-Fi, printing, charging and snacks included." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230b1e3d'/%3E%3Ctext x='32' y='42' font-family='Arial' font-size='26' font-weight='bold' fill='%23f5c451' text-anchor='middle'%3ESN%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css" />
+  <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+</head>
+<body data-page="home">
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="../public/index.html" class="brand"><span class="brand-mark">SN</span>Study<span class="accent">Nest</span></a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../public/index.html" data-nav="home">Home</a></li>
+        <li><a href="../booking/booking.html" data-nav="book">Book a Seat</a></li>
+        <li><a href="../booking/seats.html" data-nav="seats">Available Seats</a></li>
+        <li><a href="../booking/my-bookings.html" data-nav="my-bookings">My Bookings</a></li>
+        <li><a href="../public/services.html" data-nav="services">Services</a></li>
+        <li><a href="../public/pricing.html" data-nav="pricing">Pricing</a></li>
+        <li><a href="../public/about.html" data-nav="about">About</a></li>
+        <li><a href="../public/contact.html" data-nav="contact">Contact</a></li>
+        <li class="mobile-cta"><a href="../auth/login.html" data-nav="login">Login / Sign Up</a></li>
+      </ul>
+
+      <div class="nav-actions" id="nav-auth">
+        <a href="../auth/login.html" class="btn btn-ghost btn-sm">Log in</a>
+        <a href="../auth/register.html" class="btn btn-primary btn-sm">Sign up</a>
+      </div>
+
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <div class="hero-panel">
+        <div class="hero-copy">
+          <span class="eyebrow on-dark">Student-only study lounge</span>
+          <h1>Your Space.<br /><span class="accent">Your Focus.</span></h1>
+          <p class="hero-sub">Study better in a quiet, affordable space made for students &mdash; book a desk by the hour, plug in, and get to work.</p>
+
+          <div class="hero-actions">
+            <a href="../booking/booking.html" class="btn btn-amber btn-lg">Book a Seat</a>
+            <a href="../booking/seats.html" class="btn btn-outline-light btn-lg">View Available Seats</a>
+          </div>
+
+          <div class="hero-facts">
+            <span class="fact"><span class="dot"></span>&#8369;15&ndash;&#8369;25 / hour</span>
+            <span class="fact"><span class="dot"></span>Quiet study environment</span>
+            <span class="fact"><span class="dot"></span>Student-friendly</span>
+            <span class="fact"><span class="dot"></span>Near campus</span>
+          </div>
+        </div>
+
+        <aside class="hero-aside">
+          <div class="hero-card">
+            <div class="hero-card-head">
+              <h3>Live availability</h3>
+              <span class="badge-live"><span class="pulse"></span>Live</span>
+            </div>
+            <p class="sub" id="hero-slot-label">Loading today&rsquo;s seats&hellip;</p>
+            <div id="hero-live" aria-live="polite"></div>
+            <a href="../booking/seats.html" class="btn btn-ghost btn-block btn-sm mt-2">See the full seat map</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="section">
+      <div class="section-card">
+        <div class="section-head center">
+          <div class="lead">
+            <span class="eyebrow">Everything you need</span>
+            <h2>One hourly rate. The whole study setup.</h2>
+            <p>Walk in, scan the seat map, sit down &mdash; Wi-Fi, power, printing and coffee are already covered.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-3">
+          <article class="card hoverable service-card">
+            <div class="icon-tile">📚</div>
+            <h3>Study Space</h3>
+            <p>Silent individual desks with privacy dividers, ergonomic chairs and bright task lighting.</p>
+            <div class="price">From ₱15/hour</div>
+          </article>
+          <article class="card hoverable service-card">
+            <div class="icon-tile blue">📶</div>
+            <h3>Wi-Fi</h3>
+            <p>Fast, stable student internet included with every booking &mdash; no extra charge, ever.</p>
+            <div class="price">Included</div>
+          </article>
+          <article class="card hoverable service-card">
+            <div class="icon-tile navy">🔌</div>
+            <h3>Charging</h3>
+            <p>Every seat has its own power outlet and USB port so your laptop and phone never die.</p>
+            <div class="price">Included</div>
+          </article>
+          <article class="card hoverable service-card">
+            <div class="icon-tile blue">🖨️</div>
+            <h3>Printing</h3>
+            <p>Printing and photocopying for modules, requirements and reports right at the lounge.</p>
+            <div class="price">Pay per page</div>
+          </article>
+          <article class="card hoverable service-card">
+            <div class="icon-tile">👥</div>
+            <h3>Group Study</h3>
+            <p>Reserved group tables with whiteboards for thesis defense drills and review sessions.</p>
+            <div class="price">From ₱25/hour</div>
+          </article>
+          <article class="card hoverable service-card">
+            <div class="icon-tile navy">🥤</div>
+            <h3>Snacks</h3>
+            <p>Affordable drinks and bites at the counter to power long study blocks and cram weeks.</p>
+            <div class="price">Counter prices</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-card">
+        <div class="section-head">
+          <div class="lead">
+            <span class="eyebrow">How it works</span>
+            <h2>Booked in under a minute</h2>
+            <p>The whole flow runs in your browser &mdash; pick a date, pick an hour, pick a seat, done.</p>
+          </div>
+          <a href="../booking/booking.html" class="btn btn-primary">Start booking</a>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <span class="num">1</span>
+            <h3>Pick date &amp; time</h3>
+            <p>Choose any day on the calendar and an hourly slot from 8:00 AM to 7:00 PM. Green means seats are free.</p>
+          </div>
+          <div class="step">
+            <span class="num">2</span>
+            <h3>Choose your seat</h3>
+            <p>Tap a desk on the live seat map. Window, quiet or group table &mdash; each shows its rate and amenities.</p>
+          </div>
+          <div class="step">
+            <span class="num">3</span>
+            <h3>Confirm &amp; study</h3>
+            <p>Get an instant booking ID, show it at the counter, and settle in. Cancel free anytime before your slot.</p>
+          </div>
+        </div>
+
+        <div class="stat-grid mt-4" id="home-stats">
+          <div class="stat-card"><span class="value" id="stat-total">15</span><span class="label">Total seats</span></div>
+          <div class="stat-card"><span class="value" id="stat-available">&mdash;</span><span class="label">Available now</span></div>
+          <div class="stat-card"><span class="value" id="stat-booked">&mdash;</span><span class="label">Booked today</span></div>
+          <div class="stat-card accent"><span class="value">₱15&ndash;25</span><span class="label">Per hour, students</span></div>
+        </div>
+
+        <div class="mt-3">
+          <div class="row between mb-2">
+            <strong style="font-size:.9rem;">Today&rsquo;s floor at a glance</strong>
+            <span class="pill navy" id="home-floor-label">Checking&hellip;</span>
+          </div>
+          <div class="chip-row" id="home-seats"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-card">
+        <div class="section-head">
+          <div class="lead">
+            <span class="eyebrow">Pricing</span>
+            <h2>Honest hourly rates for students</h2>
+            <p>No membership needed to start. Just pay for the hours you actually study.</p>
+          </div>
+          <a href="../public/pricing.html" class="btn btn-ghost">See full pricing</a>
+        </div>
+
+        <div class="plans">
+          <div class="plan">
+            <span class="plan-name">Hourly</span>
+            <div class="plan-price">₱15&ndash;25<small>/hour</small></div>
+            <p class="plan-desc">Standard seats, pay as you go.</p>
+            <ul class="plan-list">
+              <li>Quiet individual study seat</li>
+              <li>Wi-Fi and charging included</li>
+              <li>Printing available at the counter</li>
+            </ul>
+            <a href="../booking/booking.html" class="btn btn-ghost btn-block">Book a seat</a>
+          </div>
+
+          <div class="plan featured">
+            <span class="plan-flag">Most booked</span>
+            <span class="plan-name">Group Study</span>
+            <div class="plan-price">From ₱25<small>/hour</small></div>
+            <p class="plan-desc">Reserved table for your whole group.</p>
+            <ul class="plan-list">
+              <li>Whiteboard and screen access</li>
+              <li>Seats 4 to 8 students</li>
+              <li>Great for thesis and group work</li>
+            </ul>
+            <a href="../booking/booking.html" class="btn btn-amber btn-block">Reserve a table</a>
+          </div>
+
+          <div class="plan">
+            <span class="plan-name">Student Pass</span>
+            <div class="plan-price">Ask us</div>
+            <p class="plan-desc">Flexible pass for heavy study weeks.</p>
+            <ul class="plan-list">
+              <li>Package rates for regulars</li>
+              <li>Priority seat booking</li>
+              <li>Best during midterms &amp; finals</li>
+            </ul>
+            <a href="../public/contact.html" class="btn btn-ghost btn-block">Inquire</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-card">
+        <div class="section-head center">
+          <div class="lead">
+            <span class="eyebrow">Student reviews</span>
+            <h2>Where campus actually gets work done</h2>
+          </div>
+        </div>
+        <div class="grid grid-3">
+          <div class="quote">
+            <p>&ldquo;I used to lose three hours a day to distractions at home. Booking a window seat here became my routine before every exam.&rdquo;</p>
+            <div class="who"><span class="av">MS</span> Maria S. &middot; 3rd year, BSIT</div>
+          </div>
+          <div class="quote">
+            <p>&ldquo;Our thesis group books G02 every Saturday. The whiteboard and stable Wi-Fi make meetings actually productive.&rdquo;</p>
+            <div class="who"><span class="av">JR</span> Joy R. &middot; 4th year, BSED</div>
+          </div>
+          <div class="quote">
+            <p>&ldquo;₱15 an hour beats every café near the gate. Printing my requirements here saves me a trip to the shop.&rdquo;</p>
+            <div class="who"><span class="av">KC</span> Kiko C. &middot; Senior High</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="cta-band">
+        <div>
+          <h2>Reserve your desk before finals week fills up.</h2>
+          <p>Open daily 8:00 AM &ndash; 10:00 PM &middot; a few steps from the campus main gate.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="../booking/booking.html" class="btn btn-amber btn-lg">Book a Seat</a>
+          <a href="../public/contact.html" class="btn btn-outline-light btn-lg">Contact us</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="../public/index.html" class="brand"><span class="brand-mark">SN</span>Study<span class="accent">Nest</span></a>
+        <p>Affordable, quiet, student-only study space near campus. Book a seat by the hour and study the way you should.</p>
+        <span class="footer-status js-status">Checking hours&hellip;</span>
+      </div>
+
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="../public/index.html">Home</a></li>
+          <li><a href="../booking/booking.html">Book a Seat</a></li>
+          <li><a href="../booking/seats.html">Available Seats</a></li>
+          <li><a href="../booking/my-bookings.html">My Bookings</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="../public/services.html">Quiet study seats</a></li>
+          <li><a href="../public/services.html">Group study area</a></li>
+          <li><a href="../public/services.html">Printing &amp; photocopying</a></li>
+          <li><a href="../public/services.html">Snacks &amp; drinks</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Visit</h4>
+        <ul>
+          <li>Steps from the campus main gate</li>
+          <li>Open daily 8 AM &ndash; 10 PM</li>
+          <li>&#8369;15 &ndash; &#8369;25 / hour</li>
+          <li><a href="../public/contact.html">Contact the lounge</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; 2026 StudyNest Student Study Lounge. All rights reserved.</p>
+      <p>Your space. Your focus.</p>
+    </div>
+  </footer>
+
+  <div class="toast-host"></div>
+  <div class="modal-root"></div>
+
+  <script type="py" src="../../py/public/main.py" config="../../pyscript.json"></script>
+</body>
+</html>
