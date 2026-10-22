@@ -23,7 +23,6 @@ PAGE_GROUP = {
     "register.html": "auth",
     "forgot-password.html": "auth",
     "dashboard.html": "dashboard",
-    "split.html": "tools",
 }
 
 _registry = {}

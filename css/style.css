@@ -163,17 +163,13 @@ strong { color: var(--ink); }
 
 .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.16rem; letter-spacing: -0.03em; }
 .brand-mark {
-  width: 36px; height: 36px;
-  display: grid; place-items: center;
-  border-radius: 11px;
-  background: var(--grad-navy);
-  color: var(--amber);
-  font-size: 1rem;
-  font-weight: 800;
-  box-shadow: 0 8px 18px rgba(11, 30, 61, 0.3);
+  display: block;
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
 }
-.brand span.accent, .brand .accent { color: var(--blue); }
-.brand .mark-dark { background: #fff; color: var(--navy-800); box-shadow: 0 8px 18px rgba(11, 30, 61, 0.16); }
+.brand-text { white-space: nowrap; }
+.brand .accent { color: var(--blue); }
 
 .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
 .nav-links a {
@@ -776,6 +772,12 @@ main { padding: 26px 0 60px; }
   flex-direction: column;
   justify-content: center;
 }
+.auth-aside .brand {
+  align-self: flex-start;
+  padding: 8px 12px;
+  background: #f9f2e1;
+  border-radius: 12px;
+}
 .auth-aside::after {
   content: ""; position: absolute; width: 340px; height: 340px; border-radius: 50%;
   background: rgba(245, 196, 81, 0.32); filter: blur(70px); right: -110px; bottom: -120px;
@@ -894,7 +896,10 @@ main { padding: 26px 0 60px; }
    ========================================================================== */
 .footer { background: var(--navy-900); color: #cdd8ea; margin-top: 40px; }
 .footer-grid { display: grid; grid-template-columns: 1.5fr repeat(3, 1fr); gap: 34px; padding: 54px 0 34px; }
-.footer .brand { color: #fff; margin-bottom: 14px; }
+.footer .brand {
+  color: #fff;
+  margin-bottom: 14px;
+}
 .footer .brand .accent { color: var(--amber); }
 .footer-brand p { font-size: 0.92rem; color: #8fa2bf; max-width: 320px; }
 .footer-status {
@@ -981,7 +986,7 @@ main { padding: 26px 0 60px; }
   /* compact header for small phones */
   .nav-inner { gap: 10px; }
   .brand { font-size: 1.02rem; gap: 8px; }
-  .brand-mark { width: 32px; height: 32px; border-radius: 10px; font-size: 0.9rem; }
+  .brand-mark { width: 40px; height: 40px; }
   .nav-actions { gap: 6px; }
   .nav-actions .btn { padding: 8px 13px; font-size: 0.8rem; }
   .nav-actions .btn-ghost { display: none; }
