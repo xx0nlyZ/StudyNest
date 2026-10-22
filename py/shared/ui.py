@@ -16,6 +16,7 @@ PAGE_GROUP = {
     "services.html": "public",
     "pricing.html": "public",
     "contact.html": "public",
+    "promo.html": "public",
     "booking.html": "booking",
     "seats.html": "booking",
     "my-bookings.html": "booking",
